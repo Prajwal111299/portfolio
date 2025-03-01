@@ -1,35 +1,4 @@
-// Handle smooth scrolling without changing URL
-        document.querySelectorAll('.nav-links a, .side-nav-item, .footer-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Offset for fixed header
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active states manually
-                    document.querySelectorAll('.nav-links a').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    document.querySelectorAll('.side-nav-item').forEach(navItem => {
-                        navItem.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked link
-                    document.querySelectorAll(`.nav-links a[href="#${targetId}"]`).forEach(navLink => {
-                        navLink.classList.add('active');
-                    });
-                    document.querySelectorAll(`.side-nav-item[href="#${targetId}"]`).forEach(navItem => {
-                        navItem.classList.add('active');
-                    });
-                }
-            });
-        });<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -179,19 +148,17 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 80px;
+            gap: 50px;
             padding-top: 30px;
         }
         
         .hero-text {
             flex: 1;
-            max-width: 60%;
         }
         
         .hero-image {
             flex: 0.8;
             text-align: center;
-            margin-top: 80px;
         }
         
         .profile-image {
@@ -865,16 +832,16 @@
     <nav id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <a href="javascript:void(0)" onclick="scrollToSection('hero')" style="font-weight: 800;">Prajwal <span>Kumar</span></a>
+                <a href="#hero" style="font-weight: 800;">Prajwal <span>Kumar</span></a>
             </div>
             
             <div class="nav-links" id="navLinks">
-                <a href="javascript:void(0)" onclick="scrollToSection('about')">About</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('experience')">Experience</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('education')">Education</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('projects')">Projects</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('skills')">Skills</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('contact')">Contact</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
             
             <div class="mobile-menu-btn" id="mobileMenuBtn">
@@ -903,6 +870,8 @@
                     <a href="https://github.com/Prajwal111299" target="_blank">GitHub</a>
                     <a href="https://www.linkedin.com/in/prajwalkumar-aaa24721b/" target="_blank">LinkedIn</a>
                     <a href="https://twitter.com/YourUsername" target="_blank">X</a>
+                    <a href="https://huggingface.co/YourUsername" target="_blank">HuggingFace</a>
+                    <a href="https://linktr.ee/prajwal_ku" target="_blank">Linktree</a>
                     <a href="mailto:prajwalk@andrew.cmu.edu">Email</a>
                 </div>
             </div>
@@ -1277,7 +1246,9 @@
                             <p>
                                 <a href="https://github.com/Prajwal111299" target="_blank">GitHub</a> | 
                                 <a href="https://www.linkedin.com/in/prajwalkumar-aaa24721b/" target="_blank">LinkedIn</a> | 
-                                <a href="https://twitter.com/YourUsername" target="_blank">X</a>
+                                <a href="https://twitter.com/YourUsername" target="_blank">X</a> | 
+                                <a href="https://huggingface.co/YourUsername" target="_blank">HuggingFace</a> | 
+                                <a href="https://linktr.ee/prajwal_ku" target="_blank">Linktree</a>
                             </p>
                         </div>
                     </div>
@@ -1302,12 +1273,12 @@
                 <a href="#hero">Prajwal <span>Kumar</span></a>
             </div>
             <div class="footer-links">
-                <a href="javascript:void(0)" onclick="scrollToSection('about')">About</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('experience')">Experience</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('education')">Education</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('projects')">Projects</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('skills')">Skills</a>
-                <a href="javascript:void(0)" onclick="scrollToSection('contact')">Contact</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="copyright">
                 &copy; 2025 Prajwal Kumar. All rights reserved.
@@ -1317,22 +1288,22 @@
 
     <!-- Side Navigation -->
     <div class="side-nav">
-        <a href="javascript:void(0)" onclick="scrollToSection('about')" class="side-nav-item">
+        <a href="#about" class="side-nav-item">
             <span class="side-nav-tooltip">About</span>
         </a>
-        <a href="javascript:void(0)" onclick="scrollToSection('experience')" class="side-nav-item">
+        <a href="#experience" class="side-nav-item">
             <span class="side-nav-tooltip">Experience</span>
         </a>
-        <a href="javascript:void(0)" onclick="scrollToSection('education')" class="side-nav-item">
+        <a href="#education" class="side-nav-item">
             <span class="side-nav-tooltip">Education</span>
         </a>
-        <a href="javascript:void(0)" onclick="scrollToSection('projects')" class="side-nav-item">
+        <a href="#projects" class="side-nav-item">
             <span class="side-nav-tooltip">Projects</span>
         </a>
-        <a href="javascript:void(0)" onclick="scrollToSection('skills')" class="side-nav-item">
+        <a href="#skills" class="side-nav-item">
             <span class="side-nav-tooltip">Skills</span>
         </a>
-        <a href="javascript:void(0)" onclick="scrollToSection('contact')" class="side-nav-item">
+        <a href="#contact" class="side-nav-item">
             <span class="side-nav-tooltip">Contact</span>
         </a>
     </div>
