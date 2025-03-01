@@ -135,19 +135,21 @@
 
         /* Hero Section */
         #hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             padding-top: 70px;
+            padding-bottom: 50px;
         }
         
         .hero-content {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             gap: 50px;
+            padding-top: 30px;
         }
         
         .hero-text {
@@ -162,30 +164,31 @@
         .profile-image {
             width: 300px;
             height: 300px;
-            border-radius: 20px;
+            border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent-color);
-            box-shadow: 0 10px 30px rgba(74, 107, 250, 0.2);
+            box-shadow: 0 0 30px rgba(74, 107, 250, 0.5);
+            margin-top: 30px;
         }
         
         .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             line-height: 1.2;
         }
         
         .hero-subtitle {
             font-size: 1.8rem;
             color: var(--accent-color);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             font-weight: 600;
         }
         
         .hero-desc {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 60px;
+            margin-bottom: 100px;
             max-width: 600px;
             line-height: 1.8;
         }
@@ -855,9 +858,11 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h1 class="hero-title fade-up">Hello, I'm <span class="typed-text" id="typed"></span></h1>
-                <h2 class="hero-subtitle fade-up">AI Engineering graduate at Carnegie Mellon</h2>
+                <h2 class="hero-subtitle fade-up">AI graduate at Carnegie Mellon</h2>
                 <p class="hero-desc fade-up">
-                    Specializing in cutting-edge artificial intelligence at Carnegie Mellon University's Information Networking Institute. With expertise in building intelligent systems, along with knowledge of Deep Neural Networks, Generative AI, and Large Language Models.
+                    Specializing in cutting-edge artificial intelligence at Carnegie Mellon University's Information Networking Institute.
+                    <br><br>
+                    With expertise in building intelligent systems, along with knowledge of Deep Neural Networks, Generative AI, and Large Language Models.
                 </p>
                 <div class="hero-cta fade-up">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
