@@ -33,6 +33,9 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-size: 1.1rem;
+            letter-spacing: 0.01em;
+            font-family: Garamond, "EB Garamond", "Garamond Premier Pro", Georgia, 'Times New Roman', serif !important;
         }
         
         a {
@@ -50,7 +53,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0;
-            overflow: hidden;
+            position: relative;
+            overflow: visible;
         }
 
         /* Navigation */
@@ -83,6 +87,7 @@
             font-weight: 700;
             color: var(--text-primary);
             letter-spacing: 1px;
+            font-family: "Goudy Old Style", "Times New Roman", serif !important;
         }
         
         .logo a span {
@@ -99,6 +104,7 @@
             font-weight: 600;
             position: relative;
             padding: 5px 0;
+            letter-spacing: 0.02em;
         }
         
         .nav-links a::after {
@@ -141,7 +147,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             padding-top: 100px;
             padding-bottom: 50px;
         }
@@ -150,32 +156,32 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 70px;
+            gap: 80px;
             padding-top: 30px;
             overflow: hidden;
         }
         
         .hero-text {
             flex: 1;
-            max-width: 82%;
+            max-width: 85%;
             overflow: hidden;
         }
         
         .hero-image {
-            flex: 0.2;
+            flex: 0.15;
             text-align: left;
             margin-top: 120px;
-            padding-right: 40px; /* Move image away from right edge */
+            padding-right: 50px; /* Move image away from right edge */
         }
         
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 30px rgba(74, 107, 250, 0.5);
-            margin-top: 30px;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(74, 107, 250, 0.4);
+            margin-top: 20px;
         }
         
         .hero-title {
