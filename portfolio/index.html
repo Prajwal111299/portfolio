@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal Kumar - AI Engineering Graduate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --accent-color: #4a6bfa;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --card-bg: #191919;
+            --card-hover: #222222;
+            --success-color: #4CAF50;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background-color: rgba(10, 10, 10, 0.98);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+        
+        .logo a span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 0.8;
+            text-align: center;
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(74, 107, 250, 0.2);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 35px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+        
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--text-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+        }
+        
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Side Navigation */
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 900;
+        }
+        
+        .side-nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--text-secondary);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .side-nav-item:hover, .side-nav-item.active {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+        
+        .side-nav-tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .side-nav-item:hover .side-nav-tooltip {
+            opacity: 1;
+            right: 30px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            left: 15%;
+            bottom: -10px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-stats {
+            flex: 1;
+        }
+        
+        .stat-box {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+        
+        .stat-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .stat-info p {
+            color: var(--text-secondary);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--card-bg);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+        
+        .timeline-period {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-company {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .timeline-desc {
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-category {
+            display: inline-block;
+            background-color: rgba(74, 107, 250, 0.2);
+            color: var(--accent-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-links a {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Skills Section */
+        .skills-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover);
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+        
+        .contact-form form {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--card-hover);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            background-color: rgba(74, 107, 250, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .footer-logo a span {
+            color: var(--accent-color);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            width: 100%;
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter Animation */
+        .typed-text {
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-desc {
+                margin: 0 auto 30px;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 30px;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 300px;
+                background-color: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+                z-index: 1001;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1002;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="#hero" style="font-weight: 800;">Prajwal <span>Kumar</span></a>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <span class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </span>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title fade-up">Hello, I'm <span class="typed-text" id="typed"></span></h1>
+                <h2 class="hero-subtitle fade-up">AI Engineering graduate at Carnegie Mellon</h2>
+                <p class="hero-desc fade-up">
+                    Specializing in cutting-edge artificial intelligence at Carnegie Mellon University's Information Networking Institute. With expertise in building intelligent systems, along with knowledge of Deep Neural Networks, Generative AI, and Large Language Models.
+                </p>
+                <div class="hero-cta fade-up">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="./Prajwal_Kumar_CV.pdf" class="btn btn-outline" download>Download CV</a>
+                    <a href="mailto:prajwalk@andrew.cmu.edu" class="btn btn-primary">Contact Me</a>
+                </div>
+                <div class="social-icons fade-up">
+                    <a href="https://github.com/Prajwal111299" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/prajwalkumar-aaa24721b/" target="_blank">LinkedIn</a>
+                    <a href="https://twitter.com/YourUsername" target="_blank">X</a>
+                    <a href="https://huggingface.co/YourUsername" target="_blank">HuggingFace</a>
+                    <a href="https://linktr.ee/prajwal_ku" target="_blank">Linktree</a>
+                    <a href="mailto:prajwalk@andrew.cmu.edu">Email</a>
+                </div>
+            </div>
+            <div class="hero-image fade-up">
+                <img src="/api/placeholder/400/400" alt="Prajwal Kumar" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">About Me</h2>
+                <p class="section-desc fade-up"></p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-up">
+                    <p>
+                        I'm Prajwal Kumar, AI Engineering Leader currently pursuing my MS in AI Engineering at Carnegie Mellon University. Being part of CMU's AI community has allowed me to collaborate with leading researchers while developing ethical AI systems across a diverse range of projects from medical image classification to language identification models and multilingual RAG pipelines.
+                    </p>
+                    <br>
+                    <p>
+                        My research has been published in IEEE, focusing on integrating deep learning techniques for healthcare. As Internal VP of CMU's AI Club and Vice President of GOINI student group, I've collaborated with faculty researchers on adversarial machine learning projects.
+                    </p>
+                    <br>
+                    <p>
+                        I have experience in developing cutting-edge AI solutions with 95%+ accuracy rates, utilizing advanced technologies like TensorFlow, PyTorch, LangChain, and various cloud platforms. I'm passionate about solving real-world problems in healthcare and information retrieval.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box fade-up">
+                        <div class="stat-info">
+                            <h3>AI/ML Engineering</h3>
+                            <p>Specializing in Deep learning, generative AI, and LLMs</p>
+                        </div>
+                    </div>
+                    <div class="stat-box fade-up">
+                        <div class="stat-info">
+                            <h3>Data Engineering</h3>
+                            <p>Building scalable data pipelines and systems</p>
+                        </div>
+                    </div>
+                    <div class="stat-box fade-up">
+                        <div class="stat-info">
+                            <h3>Research</h3>
+                            <p>IEEE published researcher in AI and healthcare</p>
+                        </div>
+                    </div>
+                    <div class="stat-box fade-up">
+                        <div class="stat-info">
+                            <h3>Project Leadership</h3>
+                            <p>Leading cross-functional teams on AI initiatives</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">Experience</h2>
+                <p class="section-desc fade-up">My professional journey in AI/ML and Data Science</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">June 2024 - Present</div>
+                        <h3 class="timeline-title">Intel® Software Innovator</h3>
+                        <div class="timeline-company">Intel Corporation</div>
+                        <p class="timeline-desc">
+                            Contributing innovative AI and deep learning solutions using Intel® technologies.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">January 2024 - February 2024</div>
+                        <h3 class="timeline-title">Machine Learning Developer Intern</h3>
+                        <div class="timeline-company">Qriocity</div>
+                        <p class="timeline-desc">
+                            Developed a resume parser with MLP Classifier, email phishing detection with 96% accuracy, AI chatbot for mental health emotion detection, and more.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">August 2023 - June 2024</div>
+                        <h3 class="timeline-title">Google Developer Student Club Lead</h3>
+                        <div class="timeline-company">Google Developers Group</div>
+                        <p class="timeline-desc">
+                            Led a team of 7 core members conducting multiple events based on Google technologies, participated in the GDSC Solutions Challenge.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">September 2022 - June 2024</div>
+                        <h3 class="timeline-title">Intel® Student Ambassador for oneAPI</h3>
+                        <div class="timeline-company">Intel Corporation</div>
+                        <p class="timeline-desc">
+                            Organized hackathons and workshops on GenAI, developed projects on Intel® DevMesh, participated in Intel® AI Global Impact Festival.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">November 2022 - March 2023</div>
+                        <h3 class="timeline-title">Data Science Intern</h3>
+                        <div class="timeline-company">Zummit Infolabs</div>
+                        <p class="timeline-desc">
+                            Built driver drowsiness detection with 94% accuracy, NLP-based chatbot, and image classification using CNN and SE Networks.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">July 2022 - August 2023</div>
+                        <h3 class="timeline-title">Machine Learning Intern</h3>
+                        <div class="timeline-company">ScriptEdge</div>
+                        <p class="timeline-desc">
+                            Developed RASA chatbot, generated synthetic fingerprint data using GAN, built language identification using Bidirectional LSTM with 98% accuracy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">Education</h2>
+                <p class="section-desc fade-up"></p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">August 2024 - December 2025</div>
+                        <h3 class="timeline-title">Master of Science - AI Engineering</h3>
+                        <div class="timeline-company">Carnegie Mellon University</div>
+                        <p class="timeline-desc">
+                            Pursuing MS in AI Engineering with Information Security minor at CMU's Information Networking Institute. Focusing on AI/ML intelligent systems and Information Security.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-up">
+                    <div class="timeline-content">
+                        <div class="timeline-period">September 2020 - July 2024</div>
+                        <h3 class="timeline-title">Bachelor of Technology - Computer Science and Engineering</h3>
+                        <div class="timeline-company">Maharshi Dayanand University</div>
+                        <p class="timeline-desc">
+                            Completed undergraduate studies in computer science with focus on machine learning and data science.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">Projects</h2>
+                <p class="section-desc fade-up">A showcase of my technical work and research</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="Multilingual RAG Pipeline">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Retrieval-Augmented Generation</span>
+                        <h3 class="project-title">Multilingual RAG Pipeline</h3>
+                        <p class="project-desc">
+                            Developed a multilingual RAG pipeline leveraging Mistral AI with LangChain and ChromaDB for semantic search across research papers, deploying a production-ready Streamlit application.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                View Code
+                            </a>
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="Email Spear Phishing Detection">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Cybersecurity</span>
+                        <h3 class="project-title">Email Spear Phishing Detection</h3>
+                        <p class="project-desc">
+                            Implemented email phishing detection using Logistic Regression and TF-IDF vectorization for feature extraction, achieving 96% accuracy on training and test data.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="LensCraft AI">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Medical Imaging</span>
+                        <h3 class="project-title">LensCraft AI for Cataract Detection</h3>
+                        <p class="project-desc">
+                            Automated diagnosis and quantitative classification of cataract types and severity using deep learning to localize key anatomical portions of the eye and track surgical tools.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="Designer QR Codes">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Generative AI</span>
+                        <h3 class="project-title">AI-Generated Designer QR Codes</h3>
+                        <p class="project-desc">
+                            Developed a Generative-AI system using Stable Diffusion with ControlNet image diffusion model, which generates designer QR Codes integrated into photos or paintings specified by the user.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="Mental Health Chatbot">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">NLP</span>
+                        <h3 class="project-title">Mental Health Emotion Detection Chatbot</h3>
+                        <p class="project-desc">
+                            Developed a Sentiment Analysis-Enhanced AI Chatbot for Emotion Detection in Mental Health using TensorFlow and Scikit-learn, integrated with a TF-IDF vectorizer and K-Nearest Neighbours algorithm.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/220" alt="Healthcare Security">
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">IEEE Research</span>
+                        <h3 class="project-title">Healthcare Image Security with Deep Learning</h3>
+                        <p class="project-desc">
+                            Research on advancing image security through deep learning and cryptography in healthcare, published in IEEE, integrating advanced security techniques with machine learning.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/Prajwal111299" target="_blank">
+                                View Publication
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">Skills</h2>
+                <p class="section-desc fade-up">Technical proficiencies and areas of expertise that I've developed</p>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category fade-up">
+                    <h3>Advanced ML/DL</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">BERT</span>
+                        <span class="skill-item">CNN-LSTM</span>
+                        <span class="skill-item">Deep Learning</span>
+                        <span class="skill-item">Neural Networks</span>
+                        <span class="skill-item">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>Generative AI</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Stable Diffusion</span>
+                        <span class="skill-item">ControlNet</span>
+                        <span class="skill-item">LLMs</span>
+                        <span class="skill-item">Mistral AI</span>
+                        <span class="skill-item">RAG</span>
+                        <span class="skill-item">LangChain</span>
+                        <span class="skill-item">NLP</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>Data Engineering</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">Apache Spark</span>
+                        <span class="skill-item">Kafka</span>
+                        <span class="skill-item">ChromaDB</span>
+                        <span class="skill-item">PySpark</span>
+                        <span class="skill-item">Data Pipelines</span>
+                        <span class="skill-item">Feature Engineering</span>
+                        <span class="skill-item">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-up">
+                    <h3>Cloud & Deployment</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">GCP Vertex AI</span>
+                        <span class="skill-item">Azure</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">Kubernetes</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-up">Contact Me</h2>
+                <p class="section-desc fade-up">Let's connect and discuss potential collaborations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" style="width: 100%;">
+                    <div class="contact-card fade-up">
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>prajwalk@andrew.cmu.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-up">
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+1 (412) 728-2613</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-up">
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Pittsburgh, Pennsylvania, United States</p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-up">
+                        <div class="contact-details">
+                            <h4>Profiles</h4>
+                            <p>
+                                <a href="https://github.com/Prajwal111299" target="_blank">GitHub</a> | 
+                                <a href="https://www.linkedin.com/in/prajwalkumar-aaa24721b/" target="_blank">LinkedIn</a> | 
+                                <a href="https://twitter.com/YourUsername" target="_blank">X</a> | 
+                                <a href="https://huggingface.co/YourUsername" target="_blank">HuggingFace</a> | 
+                                <a href="https://linktr.ee/prajwal_ku" target="_blank">Linktree</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-card fade-up" style="text-align: center; background-color: var(--accent-color); color: white;">
+                        <a href="mailto:prajwalk@andrew.cmu.edu" style="color: white; width: 100%; display: block;">
+                            <h3 style="margin-bottom: 8px;">Let's Work Together!</h3>
+                            <p style="margin-bottom: 15px;">I'm always open to new opportunities and collaborations</p>
+                            <div class="btn btn-primary" style="background-color: white; color: var(--accent-color); border: none; display: inline-block;">
+                                Contact Me
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <a href="#hero">Prajwal <span>Kumar</span></a>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Prajwal Kumar. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <a href="#about" class="side-nav-item">
+            <span class="side-nav-tooltip">About</span>
+        </a>
+        <a href="#experience" class="side-nav-item">
+            <span class="side-nav-tooltip">Experience</span>
+        </a>
+        <a href="#education" class="side-nav-item">
+            <span class="side-nav-tooltip">Education</span>
+        </a>
+        <a href="#projects" class="side-nav-item">
+            <span class="side-nav-tooltip">Projects</span>
+        </a>
+        <a href="#skills" class="side-nav-item">
+            <span class="side-nav-tooltip">Skills</span>
+        </a>
+        <a href="#contact" class="side-nav-item">
+            <span class="side-nav-tooltip">Contact</span>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script>
+        // Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuBtn && closeMenu && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.add('active');
+            });
+            
+            closeMenu.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+        
+        // Sticky Navigation
+        const navbar = document.getElementById('navbar');
+        
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        // Update side navigation active state
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.side-nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-up');
+        
+        const fadeIn = (element) => {
+            const distanceFromTop = window.scrollY + window.innerHeight;
+            const elementTop = element.offsetTop;
+            const elementHeight = element.clientHeight;
+            const isHalfShown = distanceFromTop > elementTop;
+            const isNotScrolledPast = window.scrollY < elementTop + elementHeight;
+            
+            if (isHalfShown && isNotScrolledPast) {
+                element.classList.add('active');
+            }
+        };
+        
+        const handleScroll = () => {
+            fadeElements.forEach(element => {
+                fadeIn(element);
+            });
+        };
+        
+        // Initial check on load
+        window.addEventListener('load', handleScroll);
+        
+        // Check on scroll
+        window.addEventListener('scroll', handleScroll);
+        
+        // Typing Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const typedElement = document.getElementById('typed');
+            if (typedElement) {
+                const typed = new Typed('#typed', {
+                    strings: [
+                        'Prajwal Kumar',
+                        'an AI Engineer',
+                        'a Machine Learning Specialist',
+                        'a Deep Learning Researcher'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 40,
+                    backDelay: 1500,
+                    startDelay: 500,
+                    loop: true
+                });
+            }
+        });
+        
+        // Form Submission
+        const contactForm = document.querySelector('.contact-form form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to a server
+                // For now, we'll just show a success message
+                alert(`Thank you, ${name}! Your message has been sent.`);
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
